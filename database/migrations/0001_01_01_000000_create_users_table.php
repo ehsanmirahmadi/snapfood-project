@@ -15,6 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string("mobile");
+            $table->string('city');
+            $table->string('address');
+            $table->integer('age');
+            $table->tinyInteger('role');
+            $table->string("img_url");
+            $table->integer('Number_purchases');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
