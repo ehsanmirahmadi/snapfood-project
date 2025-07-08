@@ -14,41 +14,13 @@
         rel="canonical"
         href="https://getbootstrap.com/docs/5.3/examples/dashboard/"
     />
-    <script src="/docs/5.3/assets/js/color-modes.js"></script>
     <link
-        href="/docs/5.3/dist/css/bootstrap.min.css"
+        href="{{asset("./css/bootstrap.min.css")}}"
         rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
     />
-    <link
-        rel="apple-touch-icon"
-        href="/docs/5.3/assets/img/favicons/apple-touch-icon.png"
-        sizes="180x180"
-    />
-    <link
-        rel="icon"
-        href="/docs/5.3/assets/img/favicons/favicon-32x32.png"
-        sizes="32x32"
-        type="image/png"
-    />
-    <link
-        rel="icon"
-        href="/docs/5.3/assets/img/favicons/favicon-16x16.png"
-        sizes="16x16"
-        type="image/png"
-    />
-    <link
-        rel="manifest"
-        href="/docs/5.3/assets/img/favicons/manifest.json"
-    />
-    <link
-        rel="mask-icon"
-        href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
-        color="#712cf9"
-    />
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
     <meta name="theme-color" content="#712cf9" />
-    <link href="{{asset("css/dashboard.css")}}" rel="stylesheet" />
+    <link href="{{asset("./css/dashboard.css")}}" rel="stylesheet" />
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -149,78 +121,6 @@
         ></path>
     </symbol>
 </svg>
-<div
-    class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
->
-    <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-    >
-        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
-            <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text"
-        >Toggle theme</span
-        >
-    </button>
-    <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-    >
-        <li>
-            <button
-                type="button"
-                class="dropdown-item d-flex align-items-center"
-                data-bs-theme-value="light"
-                aria-pressed="false"
-            >
-                <svg class="bi me-2 opacity-50" aria-hidden="true">
-                    <use href="#sun-fill"></use>
-                </svg>
-                Light
-                <svg class="bi ms-auto d-none" aria-hidden="true">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-        <li>
-            <button
-                type="button"
-                class="dropdown-item d-flex align-items-center"
-                data-bs-theme-value="dark"
-                aria-pressed="false"
-            >
-                <svg class="bi me-2 opacity-50" aria-hidden="true">
-                    <use href="#moon-stars-fill"></use>
-                </svg>
-                Dark
-                <svg class="bi ms-auto d-none" aria-hidden="true">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-        <li>
-            <button
-                type="button"
-                class="dropdown-item d-flex align-items-center active"
-                data-bs-theme-value="auto"
-                aria-pressed="true"
-            >
-                <svg class="bi me-2 opacity-50" aria-hidden="true">
-                    <use href="#circle-half"></use>
-                </svg>
-                Auto
-                <svg class="bi ms-auto d-none" aria-hidden="true">
-                    <use href="#check2"></use>
-                </svg>
-            </button>
-        </li>
-    </ul>
-</div>
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="calendar3" viewBox="0 0 16 16">
         <path
@@ -316,7 +216,7 @@
     <a
         class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
         href="#"
-    >Company name</a
+    >snap food company</a
     >
     <ul class="navbar-nav flex-row d-md-none">
         <li class="nav-item text-nowrap">
@@ -725,7 +625,7 @@
     </div>
 </div>
 <script
-    src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+    src="{{asset("js/bootstrap.bundle.min.js")}}"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     class="astro-vvvwv3sm"
 ></script>
