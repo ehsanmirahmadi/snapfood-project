@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('restaurants_id');
             $table->integer('menu_id');
             $table->integer('quantity');
+            $table->integer('status');
             $table->timestamps();
         });
     }
