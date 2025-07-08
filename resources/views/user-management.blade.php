@@ -60,7 +60,7 @@
                         <div class="col-6 col-lg-3">
                             <div class="count-data text-center">
                                 <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                                <p class="m-0px font-w-700 " style="font-size: 20px" >count selas</p>
+                                <p class="m-0px font-w-700 " style="font-size: 20px" >Number of purchases</p>
                             </div>
                         </div>
 
