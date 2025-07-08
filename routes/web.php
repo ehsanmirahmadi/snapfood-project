@@ -18,7 +18,7 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/', [HomeController::class, 'welcome'])->name('home');
+Route::middleware("redirectIfAuthenticated")->get('/', [HomeController::class, 'welcome'])->name('home');
 
 // --- احراز هویت ---
 // لاگین
