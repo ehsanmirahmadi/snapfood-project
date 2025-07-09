@@ -7,23 +7,8 @@ use App\Domain\User\http\Controller\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/menu', function () {
-    return view('user-management');
+    return view('restaurant');
 });
-/*Route::get('/', function () {
-    return view('user-management');
-});
-
-Route::get('/cart', function () {
-    return view('cart');
-});
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/login', function () {
-    return view('login');
-});*/
-
-
 Route::get('/', function () {
    return redirect()->route('login');
 });
@@ -39,6 +24,8 @@ Route::middleware('guest')->group(function () {
 // روت‌های کاربران احراز هویت شده
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/dashboard-user', [DashboardController::class, 'show'])->name('dashboard.user');
+    Route::get('/dashboard-user', [DashboardController::class, 'showUserDashboard'])->name('dashboard.user');
+    Route::get('/dashboard-user/restaurants', [DashboardController::class, 'showRestaurant'])->name('dashboard.restaurant-list');
+
 
 });
