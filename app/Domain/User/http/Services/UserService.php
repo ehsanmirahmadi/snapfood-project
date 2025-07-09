@@ -9,6 +9,7 @@ use App\Domain\User\http\Interfaces\UserServiceInterface;
 use App\Domain\User\http\Models\Enume\UserRoles;
 use \App\Domain\User\http\Models\User;
 use App\Domain\User\Enums\UserRole;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserService implements UserServiceInterface
@@ -32,10 +33,18 @@ class UserService implements UserServiceInterface
         return $this->userRepository->create($userData);
     }
 
-    public function loginUser(array $data): User
+    public function loginUser(array $data): ?User
     {
-        $data["password"] = Hash::make($data["password"]);
-        return $this->userRepository->findByLogin($data);
+        $user = User::where('email', $data['email'])->first();
+        if (!$user || !Hash::check($data['password'], $user->password)) {
+            return null;
+        }
+        Auth::login($user);
+        return $user;
+    }
+    public function logoutUser(): void
+    {
+        auth()->logout();
     }
 
     public function updateUserProfile(int $userId, array $data): User

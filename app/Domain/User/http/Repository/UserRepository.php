@@ -6,6 +6,7 @@ use App\Domain\User\http\Interfaces\UserRepositoryInterface;
 use App\Domain\User\http\Models\User;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -14,10 +15,6 @@ class UserRepository implements UserRepositoryInterface
         return User::find($id);
     }
 
-    public function findByLogin(array $data): ?User
-    {
-        return User::where("email", $data["email"])->where("password" , $data["password"])->first();
-    }
     public function create(array $data): User
     {
         return User::create($data);

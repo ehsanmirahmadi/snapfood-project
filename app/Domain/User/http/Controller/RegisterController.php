@@ -20,7 +20,6 @@ class RegisterController extends Controller
     {
         $user = $this->registrationService->registerUser($request->validated());
         auth()->login($user);
-        return redirect()->route('user-management');
+        return redirect()->route('dashboard.user');
     }
-
 }

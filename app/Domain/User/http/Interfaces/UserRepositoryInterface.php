@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 interface UserRepositoryInterface
 {
     public function find(int $id): ?User;
-    public function findByLogin(array $email): ?User;
     public function create(array $data): User;
     public function update(User $user, array $data): User;
     public function delete(int $id): bool;
