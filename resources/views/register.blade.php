@@ -29,21 +29,21 @@
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                     <div class="card-body p-4 p-md-5">
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                        <form>
-
+                        <form method="post" action="{{route("register.exist")}}">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="firstName" class="form-control form-control-lg" />
-                                        <label class="form-label" for="firstName">First Name</label>
+                                        <input type="text" id="firstName" name="firstName" class="form-control form-control-lg" />
+                                        <label class="form-label" for="firstName" >First Name</label>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6 mb-4">
 
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="text" id="lastName" class="form-control form-control-lg" />
+                                        <input type="text" id="lastName" name="lastName" class="form-control form-control-lg" />
                                         <label class="form-label" for="lastName">Last Name</label>
                                     </div>
 
@@ -54,31 +54,17 @@
                                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                                     <div data-mdb-input-init class="form-outline datepicker w-100">
-                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                                        <label for="birthdayDate" class="form-label">Birthday</label>
+                                        <input type="text" class="form-control form-control-lg" id="age" name="age"/>
+                                        <label for="age" class="form-label">age</label>
                                     </div>
 
                                 </div>
-                                <div class="col-md-6 mb-4">
 
-                                    <h6 class="mb-2 pb-1">Gender: </h6>
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                               value="option1" checked />
-                                        <label class="form-check-label" for="femaleGender">Female</label>
-                                    </div>
-
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                               value="option2" />
-                                        <label class="form-check-label" for="maleGender">Male</label>
-                                    </div>
-
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                                               value="option3" />
-                                        <label class="form-check-label" for="otherGender">Other</label>
+                                    <div data-mdb-input-init class="form-outline datepicker w-100">
+                                        <input type="password" class="form-control form-control-lg" id="password" name="password" />
+                                        <label for="password" class="form-label">password</label>
                                     </div>
 
                                 </div>
@@ -88,7 +74,7 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                                        <input type="email" id="emailAddress" class="form-control form-control-lg" name="email" />
                                         <label class="form-label" for="emailAddress">Email</label>
                                     </div>
 
@@ -96,14 +82,32 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div data-mdb-input-init class="form-outline">
-                                        <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                                        <input type="text" id="mobile" class="form-control form-control-lg" name="mobile"/>
+                                        <label class="form-label" for="mobile">Phone Number</label>
                                     </div>
 
                                 </div>
                             </div>
-                            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 col-12" >Sign in</button>
-                            <a href="">regeaster</a>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" id="Address" class="form-control form-control-lg" name="address"/>
+                                        <label class="form-label" for="Address">Address</label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <div data-mdb-input-init class="form-outline">
+                                        <input type="text" id="city" class="form-control form-control-lg" name="city"/>
+                                        <label class="form-label" for="city">city</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 col-12" >Sign in</button>
+                            <a href="{{route("login")}}">login</a>
                         </form>
                     </div>
                 </div>
