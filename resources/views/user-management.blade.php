@@ -1,5 +1,91 @@
 @extends("_master.app")
+@section("sidebar")
+    <div
+        class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary position-fixed"
+        style="width: 250px ; height: 96vh ;"
+    >
+        <a
+            href="/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+            <svg
+                class="bi pe-none me-2"
+                width="40"
+                height="32"
+                aria-hidden="true"
+            >
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Sidebar</span>
+        </a>
+        <hr />
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                    <svg
+                        class="bi pe-none me-2"
+                        width="16"
+                        height="16"
+                        aria-hidden="true"
+                    >
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link link-body-emphasis">
+                    <svg
+                        class="bi pe-none me-2"
+                        width="16"
+                        height="16"
+                        aria-hidden="true"
+                    >
+                        <use xlink:href="#grid"></use>
+                    </svg>
+                    restaurants
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link link-body-emphasis">
+                    <svg
+                        class="bi pe-none me-2"
+                        width="16"
+                        height="16"
+                        aria-hidden="true"
+                    >
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    cart
+                </a>
+            </li>
 
+        </ul>
+        <hr />
+        <div class="dropdown">
+            <a
+                href="#"
+                class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+            >
+                <img
+                    src="https://github.com/mdo.png"
+                    alt=""
+                    width="32"
+                    height="32"
+                    class="rounded-circle me-2"
+                />
+                <strong>mdo</strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow">
+                <li><a class="dropdown-item" href="#">edit</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="{{route("logout")}}">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+@endsection
 @section("main")
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5 ">
         <section class="section about-section gray-bg" id="about">
@@ -7,43 +93,30 @@
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-
-                            <h6 class="theme-color lead mx-5">name : <strong>ehsan mirahmadi</strong></h6>
+                            <h6 class="theme-color lead mx-5">welcome my friends : <strong>{{$user['name']}}</strong></h6>
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
-                                        <label>Birthday</label>
-                                        <p>4th april 1998</p>
-                                    </div>
-                                    <div class="media">
                                         <label>Age</label>
-                                        <p>22 Yr</p>
-                                    </div>
-                                    <div class="media">
-                                        <label>Residence</label>
-                                        <p>Canada</p>
+                                        <p>{{$user["age"]}} Yr</p>
                                     </div>
                                     <div class="media">
                                         <label>Address</label>
-                                        <p>California, USA</p>
+                                        <p>{{$user["address"]}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="media">
                                         <label>E-mail</label>
-                                        <p>info@domain.com</p>
+                                        <p>{{$user["email"]}}</p>
                                     </div>
                                     <div class="media">
                                         <label>Phone</label>
-                                        <p>820-885-3321</p>
+                                        <p>{{$user["mobile"]}}</p>
                                     </div>
                                     <div class="media">
-                                        <label>Skype</label>
-                                        <p>skype.0404</p>
-                                    </div>
-                                    <div class="media">
-                                        <label>Freelance</label>
-                                        <p>Available</p>
+                                        <label>city</label>
+                                        <p>{{$user["city"]}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +124,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about-avatar">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+                            <img src="{{asset($user['img_url'])}}" title="" alt="">
                         </div>
                     </div>
                 </div>
@@ -59,7 +132,7 @@
                     <div class="row d-flex justify-content-center mt-3 bg-mute" >
                         <div class="col-6 col-lg-3">
                             <div class="count-data text-center">
-                                <h6 class="count h2" data-to="500" data-speed="500">500</h6>
+                                <h6 class="count h2" data-to="500" data-speed="500">{{$user["Number_purchases"]}}</h6>
                                 <p class="m-0px font-w-700 " style="font-size: 20px" >Number of purchases</p>
                             </div>
                         </div>
