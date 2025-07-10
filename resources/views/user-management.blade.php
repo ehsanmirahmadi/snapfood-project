@@ -1,68 +1,4 @@
-@extends("_master.app")
-
-@section("sidebar")
-    <div
-        class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary position-fixed"
-        style="width: 250px ; height: 96vh ;"
-    >
-        <a
-            href="/"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-        >
-            <svg
-                class="bi pe-none me-2"
-                width="40"
-                height="32"
-                aria-hidden="true"
-            >
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-            <span class="fs-4">Sidebar</span>
-        </a>
-        <hr />
-        <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-                <a href="{{route("dashboard.user")}}" class="nav-link active" aria-current="page">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{{route("dashboard.restaurant-list")}}" class="nav-link link-body-emphasis">
-                    restaurants
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link link-body-emphasis">
-                    cart
-                </a>
-            </li>
-
-        </ul>
-        <hr />
-        <div class="dropdown">
-            <a
-                href="#"
-                class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-            >
-                <img
-                    src="https://github.com/mdo.png"
-                    alt=""
-                    width="32"
-                    height="32"
-                    class="rounded-circle me-2"
-                />
-                <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu text-small shadow">
-                <li><a class="dropdown-item" href="#">edit</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="{{route("logout")}}">Sign out</a></li>
-            </ul>
-        </div>
-    </div>
-@endsection
+@extends("_master.customer")
 @section("main")
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5 ">
         <section class="section about-section gray-bg" id="about">
@@ -70,7 +6,8 @@
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-lg-6">
                         <div class="about-text go-to">
-                            <h6 class="theme-color lead mx-5">welcome my friends : <strong>{{$user['name']}}</strong></h6>
+                            <h6 class="theme-color lead mx-5">welcome my friends : <strong>{{$user['name']}}</strong>
+                            </h6>
                             <div class="row about-list">
                                 <div class="col-md-6">
                                     <div class="media">
@@ -106,11 +43,11 @@
                     </div>
                 </div>
                 <div class="counter">
-                    <div class="row d-flex justify-content-center mt-3 bg-mute" >
+                    <div class="row d-flex justify-content-center mt-3 bg-mute">
                         <div class="col-6 col-lg-3">
                             <div class="count-data text-center">
                                 <h6 class="count h2" data-to="500" data-speed="500">{{$user["Number_purchases"]}}</h6>
-                                <p class="m-0px font-w-700 " style="font-size: 20px" >Number of purchases</p>
+                                <p class="m-0px font-w-700 " style="font-size: 20px">Number of purchases</p>
                             </div>
                         </div>
 

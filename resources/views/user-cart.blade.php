@@ -1,4 +1,4 @@
-@extends("_master.app")
+@extends("_master.customer")
 @section("extra_css" )
     .cart-item {
     border-bottom: 1px solid #e0e0e0;

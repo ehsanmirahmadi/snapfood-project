@@ -1,4 +1,4 @@
-@extends("_master.app")
+@extends("_master.customer")
 @section("section")
     <section class="vh-95 gradient-custom">
         <div class="container py-5 h-100">
@@ -17,11 +17,13 @@
 
                                 <!-- Password input -->
                                 <div data-mdb-input-init class="form-outline mb-4">
-                                    <input type="password" id="form2Example2" class="form-control" name="password" />
+                                    <input type="password" id="form2Example2" class="form-control" name="password"/>
                                     <label class="form-label" for="form2Example2">Password</label>
                                 </div>
                                 <!-- Submit button -->
-                                <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4 col-12" >Sign in</button>
+                                <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                                        class="btn btn-primary btn-block mb-4 col-12">Sign in
+                                </button>
                                 <a href="{{route("register")}}">register</a>
                             </form>
                         </div>
