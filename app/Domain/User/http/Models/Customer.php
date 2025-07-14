@@ -2,6 +2,7 @@
 
 namespace App\Domain\User\http\Models;
 
+use App\Domain\Order\http\Models\Orders;
 use App\Domain\User\http\Models\Enume\UserRoles;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,13 +20,6 @@ class Customer extends Model
 
     public function orders(): HasMany
     {
-        return $this->hasMany(Order::class, 'user_id');
-    }
-
-    public function getLoyaltyLevelAttribute()
-    {
-        if ($this->Number_purchases > 50) return 'gold';
-        if ($this->Number_purchases > 20) return 'silver';
-        return 'bronze';
+        return $this->hasMany(Orders::class, 'user_id');
     }
 }

@@ -16,6 +16,7 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
+        'slug',
         'email',
         'mobile',
         'city',
@@ -38,9 +39,4 @@ class User extends Authenticatable
         'age' => 'integer',
         'Number_purchases' => 'integer',
     ];
-
-    public function getProfileImageAttribute()
-    {
-        return $this->img_url ?? asset('images/default-avatar.jpg');
-    }
 }

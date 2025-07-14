@@ -33,67 +33,58 @@
     }
 @endsection
 @section("main")
+
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-5">
         <div class="container mt-5">
             <div class="row">
                 <!-- Shopping Cart Items -->
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <h3>Your Shopping Cart</h3>
-
-                    <!-- Cart Item 1 -->
-                    <div class="cart-item d-flex justify-content-between">
-                        <div class="d-flex">
-                            <img src="https://via.placeholder.com/100" alt="Product" class="product-img me-3">
-                            <div>
-                                <h5>Product Name 1</h5>
-                                <p class="text-muted">Description of the product.</p>
-                                <input type="number" class="form-control w-25" value="1">
+                    @if(isset($cartUser))
+                        @foreach($cartUser as $res_id => $items)
+                            @php
+                                $totla = 0;
+                                $res_name = \App\Domain\User\http\Models\User::where('id' , $items[0]->menus->restaurants_id)->first()->name;
+                            @endphp
+                            <hr>
+                                <h4>{{$res_name}}</h4>
+                            <hr>
+                            @foreach($items as $cart)
+                                @php
+                                    $totla =$totla + ($cart->quantity * $cart->menus->price );
+                                @endphp
+                                    <!-- Cart Item 1 -->
+                                <div class="cart-item d-flex justify-content-between">
+                                    <div class="d-flex">
+                                        <img src="{{asset($cart->menus->img_url)}}" alt="Product" class="product-img me-3">
+                                        <div>
+                                            <h5>{{$cart->menus->name_food}}</h5>
+                                            <small > {{$res_name}}</small>
+                                            <hr>
+                                            <strong>{{$cart->quantity}}</strong>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-between">
+                                        <span>${{$cart->quantity * $cart->menus->price}}</span>
+                                        <a href="{{route('dashboard.delete-cart' , ['foodId' => $cart->id]) }}" class="btn btn-sm btn-danger">Remove</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <div class="cart-summary">
+                                <h4>Cart Summary : {{$res_name}}</h4>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex justify-content-between">
+                                        <span class="total-price">Total:</span>
+                                        <span class="total-price">${{$totla ?? ""}}</span>
+                                    </li>
+                                </ul>
+                                <a href="{{route('dashboard.user.order.create' , ['userSlug' => auth()->user()['slug'] , 'resId' => $res_id ])}}" class="btn btn-checkout w-100">Checkout</a>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column justify-content-between">
-                            <span>$25.99</span>
-                            <button class="btn btn-sm btn-danger">Remove</button>
-                        </div>
-                    </div>
+                        @endforeach
+                    @else
+                        <h1> no products at cart</h1>
+                    @endif
 
-                    <!-- Cart Item 2 -->
-                    <div class="cart-item d-flex justify-content-between">
-                        <div class="d-flex">
-                            <img src="https://via.placeholder.com/100" alt="Product" class="product-img me-3">
-                            <div>
-                                <h5>Product Name 2</h5>
-                                <p class="text-muted">Another product description.</p>
-                                <input type="number" class="form-control w-25" value="2">
-                            </div>
-                        </div>
-                        <div class="d-flex flex-column justify-content-between">
-                            <span>$19.99</span>
-                            <button class="btn btn-sm btn-danger">Remove</button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Cart Summary -->
-                <div class="col-lg-4">
-                    <div class="cart-summary">
-                        <h4>Cart Summary</h4>
-                        <ul class="list-unstyled">
-                            <li class="d-flex justify-content-between">
-                                <span>Subtotal:</span>
-                                <span>$45.98</span>
-                            </li>
-                            <li class="d-flex justify-content-between">
-                                <span>Shipping:</span>
-                                <span>$5.00</span>
-                            </li>
-                            <li class="d-flex justify-content-between">
-                                <span class="total-price">Total:</span>
-                                <span class="total-price">$50.98</span>
-                            </li>
-                        </ul>
-                        <button class="btn btn-checkout w-100">Proceed to Checkout</button>
-                    </div>
                 </div>
             </div>
         </div>

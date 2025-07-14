@@ -17,14 +17,11 @@
                                 <span>{{$menu['price']}}</span>
                             </div>
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary mt-auto align-self-start">add cart</a>
-
+                                <a href="{{route('dashboard.create-cart' , ['foodId' => $menu['id']])}}" class="btn btn-primary mt-auto align-self-start">add cart</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
         </div>
     </main>

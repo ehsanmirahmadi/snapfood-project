@@ -17,7 +17,14 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next , ...$guards) : Response
     {
         if (Auth::guard($guards)->check()) {
-            return redirect('/dashboard');
+            $user = auth()->user();
+            if ($user->role->value == 0) {
+                return redirect('/dashboard-user');
+
+            }
+            elseif($user->role->value == 1 ){
+                return redirect('/dashboard-res');
+            }
         }
 
         if ($request->is('/')) {

@@ -30,6 +30,7 @@ class RegisterRequest extends FormRequest
             'age' => 'required|integer|min:2',
             'address' => 'required',
             'city' => 'required',
+            'role'=> 'required',
         ];
     }
 }
