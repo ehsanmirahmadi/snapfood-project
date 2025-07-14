@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('restaurants_id');
             $table->string('name_food');
-            $table->string('img_url');
+            $table->string('img_url')->default('images/pizza-image.png');
+            $table->string('quntity')->default('0');
             $table->string('recipe');
             $table->string('price');
             $table->timestamps();

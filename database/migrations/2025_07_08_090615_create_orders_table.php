@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('order_id');
             $table->integer('user_id');
             $table->integer('restaurants_id');
             $table->integer('menu_id');
             $table->integer('quantity');
-            $table->integer('status');
+            $table->integer('price');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
