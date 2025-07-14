@@ -107,19 +107,24 @@
 
                                 <div class="card-body p-4 d-flex flex-column">
                                     @foreach($order as $item)
-                                        <div class="d-flex flex-row mb-4 pb-2">
-                                            <div class="flex-fill">
-                                                <h5 class="fw-bold">{{ $item->menus->name_food }}</h5>
-                                                <p class="text-muted">Qt: {{ $item->quantity }} item</p>
-                                                <h4 class="mb-3">
-                                                    $ {{ $item->menus->price * $item->quantity }}
-                                                    <span class="small text-muted">via (COD)</span>
-                                                </h4>
+                                        @if(!is_null($item->menus))
+                                            <div class="d-flex flex-row mb-4 pb-2">
+                                                <div class="flex-fill">
+                                                    <h5 class="fw-bold">{{ $item->menus->name_food }}</h5>
+                                                    <p class="text-muted">Qt: {{ $item->quantity }} item</p>
+                                                    <h4 class="mb-3">
+                                                        $ {{ $item->menus->price * $item->quantity }}
+                                                        <span class="small text-muted">via (COD)</span>
+                                                    </h4>
+                                                </div>
+                                                <div>
+                                                    <img class="align-self-center img-fluid" src="{{ asset($item->menus->img_url) }}" width="250" alt="{{ $item->menus->name_food }}">
+                                                </div>
                                             </div>
-                                            <div>
-                                                <img class="align-self-center img-fluid" src="{{ asset($item->menus->img_url) }}" width="250" alt="{{ $item->menus->name_food }}">
-                                            </div>
-                                        </div>
+                                        @else
+                                            <h3>محصولی ناموجود بود</h3>
+                                        @endif
+
                                     @endforeach
 
                                     <ul id="progressbar-1" class="mx-0 mt-0 mb-5 px-0 pt-0 pb-4 d-flex justify-content-between">

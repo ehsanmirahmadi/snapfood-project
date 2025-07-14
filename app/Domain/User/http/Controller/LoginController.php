@@ -22,10 +22,11 @@ class LoginController extends Controller
     public function login(LoginRequest $request): RedirectResponse
     {
         $user = $this->userService->loginUser($request->validated());
-        if ($user->role->value == 0) {
+
+        if ( !is_null($user) && $user->role == 0) {
             return redirect()->intended(route('dashboard.user'));
         }
-        elseif($user->role->value == 1)
+        elseif( !is_null($user) && $user->role == 1)
             return redirect()->intended(route('dashboard.res'));
         else return redirect()->intended(route('login'));
     }

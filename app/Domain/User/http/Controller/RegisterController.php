@@ -20,6 +20,7 @@ class RegisterController extends Controller
     {
         $user = $this->registrationService->registerUser($request->validated());
         auth()->login($user);
+
         if ($user->role->value == 0) {
             return redirect()->intended(route('dashboard.user'));
         }
