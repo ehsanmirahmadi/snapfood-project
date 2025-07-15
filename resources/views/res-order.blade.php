@@ -120,9 +120,10 @@
                                                 <div>
                                                     <img class="align-self-center img-fluid" src="{{ asset($item->menus->img_url) }}" width="250" alt="{{ $item->menus->name_food }}">
                                                 </div>
+                                                @else
+                                                    <h3>محصولی ناموجود بود</h3>
                                             </div>
-                                        @else
-                                            <h3>محصولی ناموجود بود</h3>
+
                                         @endif
 
                                     @endforeach
